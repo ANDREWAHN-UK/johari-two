@@ -6,19 +6,19 @@
 
 
 // below for local connection
-$host = '127.0.0.1';
-$db = "johari";
-$user = 'root';
-$pass = '';
-$charset = 'utf8mb4';
+//$host = '127.0.0.1';
+//$db = "johari";
+//$user = 'root';
+//$pass = '';
+//$charset = 'utf8mb4';
 
 //remote database connection:
 
-// $host = 'remotemysql.com';
-// $db = "EfIHr2Rh6H";
-// $user = 'EfIHr2Rh6H';
-// $pass = '3RjWvm9pLh';
-// $charset = 'utf8mb4';
+$host = 'remotemysql.com';
+$db = "EfIHr2Rh6H";
+$user = 'EfIHr2Rh6H';
+$pass = '3RjWvm9pLh';
+$charset = 'utf8mb4';
 
 $dsn = "mysql:host = $host; dbname=$db; charset=$charset";
 
