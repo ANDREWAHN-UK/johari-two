@@ -1,0 +1,523 @@
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+}
+
+/*custom base properties*/
+:root {
+    /*font*/
+    --ff--primary: 'Source Sans Pro', sans-serif;
+    --ff--secondary: 'Source Code Pro', monospace;
+
+    /*font-weight*/
+    --fw-regular: 300;
+    --fw-bold: 900;
+
+    /*font sizings*/
+    --fs-h1: 3rem;
+    --fs-h2: 2.25rem;
+    --fs-h3: 1.25rem;
+    --fs-body: 1rem;
+
+    /*colours*/
+    --clr-light: #fff;
+    --clr-dark: #303030;
+    --clr-accent: #16e0bd;
+    --johari-one:#6c7c7c;
+    --johari-two:#4e5051;
+    --johari-three:#ffcd1c;
+    --johari-four:#a71e22;
+    --johari-five:#def2fc;
+
+    --boxshadow: 0.25em 0.25em 0.75em rgba(0, 0, 0, 0.25),
+        0.125em 0.125em 0.25em rgba(0, 0, 0, 0.15);
+}
+
+html {
+    scroll-behavior: smooth;
+    height: 100%;
+    margin: 0;
+}
+
+
+/*images*/
+
+img {
+    display: block;
+    max-width: 100%;
+}
+
+.logo-image {
+    height: 50px;
+    width: 50px;
+    border-radius: 50%;
+    max-width: 100px;
+    position: absolute;
+    top: 1em;
+    left: 1em;
+}
+
+body {
+    background: var(--johari-one);
+    color: var(--johari-three);
+    margin: 0;
+    font-family: var(--ff--primary);
+    font-size: var(--fs-body);
+    line-height: 1.6;
+    min-height: 100%;
+    position: relative;  
+}
+
+section {
+    padding: 5em 2em;
+}
+
+:focus {
+    outline: 3px solid var(--johari-three);
+    outline-offset: 3px;
+}
+
+/*Typography*/
+
+h1,
+h2,
+h3 {
+    line-height: 1;
+    margin: 0;
+}
+
+h1 {
+    font-size: var(--fs-h1);
+}
+
+h2 {
+    font-size: var(--fs-h2);
+}
+
+h3 {
+    font-size: var(--fs-h3);
+}
+
+/* Header */
+
+.header {
+    display: flex;
+    justify-content: space-between;
+    padding: 1em;
+    height: 6vh;
+    background-color: var(--johari-one);
+}
+
+.nav {
+    position: fixed;
+    background: var(--johari-two);
+    color: var(--johari-three);
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    z-index: 100;
+    transform: translateX(100%);
+    /*this value moves the nav offscreen if at 100%, javascript to bring it back */
+    transition: transform 250ms cubic-bezier(0.075, 0.82, 0.165, 1);
+}
+
+.nav--list {
+    list-style: none;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    align-items: center;
+    margin: auto;
+}
+
+.nav--link {
+    color: inherit;
+    font-weight: var(--fw-bold);
+    font-size: var(--fs-h3);
+    text-decoration: none;
+}
+
+.nav--link:hover {
+    color: var(--johari-four);
+}
+
+/* Hamburger menu stuff */
+
+.hamburger {
+    display: block;
+    position: relative;
+}
+
+.hamburger,
+.hamburger::before,
+.hamburger::after {
+    background-color: var(--johari-four);
+    width: 3em;
+    height: 3px;
+    border-radius: 1em;
+    transition: transform 250ms ease-in-out;
+    margin-top: 5px;
+    margin-bottom: 5px;
+}
+
+.hamburger::before,
+.hamburger::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    right: 0;
+}
+
+.hamburger::before {
+    top: 6px;
+}
+
+.hamburger::after {
+    bottom: 6px;
+}
+
+.nav-toggle {
+    padding: 0.5em;
+    cursor: pointer;
+    background: transparent;
+    border: 0;
+    position: absolute;
+    right: 1em;
+    top: 1em;
+    z-index: 200;
+}
+
+.nav-open .nav {
+    transform: translateX(0);
+}
+
+.nav-open .nav-toggle {
+    position: fixed;
+}
+
+.nav-open .hamburger,
+.nav-open .hamburger::before,
+.nav-open .hamburger::after {
+    background-color: var(--johari-three);
+}
+
+
+.nav-open .hamburger {
+    transform: rotate(.625turn);
+}
+
+.nav-open .hamburger::before {
+    transform: rotate(90deg) translateX(-10px);
+}
+
+.nav-open .hamburger::after {
+    opacity: 0;
+}
+
+/* Home page */
+.home{
+    position: relative;
+}
+
+.home{
+    background-image: url(media/JoNd\ \(5\).jpg);
+    background-position: center;
+    /* Center the image */
+    background-repeat: no-repeat;
+    /* Do not repeat the image */
+    background-size: cover;
+    /* Resize the background image to cover the entire container */
+    height: 100vh;    
+}
+
+.text-box {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    align-content: space-around;
+    height: 80%;
+    width: 80%;
+    margin: auto;  
+    background-color: rgba(0, 0, 0, 0.199);
+    color: var(--johari-five);
+}
+
+.text-box p {
+  margin-left:5vh;
+  margin-right: 5vh;
+  font-size: var(--fs-body);
+  margin-top: 5vh;
+}
+
+.text-box h1{
+    text-decoration: underline;
+}
+
+/* Cottage page */
+
+.cottage{
+    background-image: url(media/JoNd\ \(16\).jpg);
+    background-position: center;
+    /* Center the image */
+    background-repeat: no-repeat;
+    /* Do not repeat the image */
+    background-size: cover;
+    /* Resize the background image to cover the entire container */
+    height: 100vh;
+}
+
+@media (max-width: 600px) {
+
+    .cottage .text-box p,  .home .text-box p{
+        display: none;
+    }
+
+    #cottage-para-one, #home-para-one{
+        display: block;
+    }
+
+    .logo-image{
+        top: 0em;
+    }    
+}
+
+/* About Us and Images section */
+
+.about-image {
+    height: 50px;
+    width: 50px;
+    border-radius: 50%;
+    max-width: 100px;   
+    top: 1em;
+    left: 1em;
+}
+
+.testimonials-button{
+    width: 20%;    
+    margin-left: 40%;
+    margin-top: 5em;
+}
+
+.about-us{
+    background-image: url(media/JoNd\ \(1\).jpeg);
+    background-color: var(--johari-three);
+    background-position: center;
+    /* Center the image */
+    background-repeat: no-repeat;
+    /* Do not repeat the image */
+    background-size: cover;
+    /* Resize the background image to cover the entire container */
+    height: 100vh;   
+}
+
+.swiper {
+  width: 50vw;
+  height: 50vh;
+}
+
+.swiper-slide img{
+    height: 100%;
+    width: 100%;
+}
+
+#carousel-title{
+    color: var(--johari-five);
+}
+/* The 2 items below stubbornly remain blue and refuse adjusting! */
+.swiper-pagination-bullet, .swiper-pagination-bullet-active{
+    color: var(--johari-three);
+}
+.swiper-button-prev, .swiper-button-next{
+    color: var(--johari-three);
+}
+
+@media (max-width: 600px) {
+
+   .text-box-2{
+    flex-direction: column;
+   }    
+}
+/* Footer */
+
+.footer {
+    background: var(--johari-two);
+    color: var(--johari-three);
+    text-align: center;
+    padding:1em;
+    font-size: var(--fs-h3);  
+    position: relative;
+    width: 100vw;
+    bottom: -25%;
+    height: 15vh;  
+}
+
+
+.footer a {
+    color: inherit;
+    text-decoration: none;
+}
+
+.footer--link:hover,
+.social-list-link:hover {
+    opacity: .6;
+}
+
+.footer--link:hover {
+    text-decoration: underline;
+}
+
+.footer--link {
+    font-size: var(--fs-h3);
+    font-weight: var(--fw-bold);
+}
+
+.social-list {
+    list-style: none;
+    display: flex;
+    justify-content: center;
+    margin: 2em 0 0;
+    padding: 0;
+}
+
+.social-list-item {
+    margin-left: 0.5em;
+    margin-right: 0.5em;
+    margin-top: -2em;
+    margin-bottom: -2em;
+}
+
+.social-list-link {
+    padding: .5em;
+}
+
+/* Contact */
+
+.contact{
+    background-image: url(media/blue-black-brick-wall.jpg);
+    background-position: center;
+    /* Center the image */
+    background-repeat: no-repeat;
+    /* Do not repeat the image */
+    background-size: cover;
+    /* Resize the background image to cover the entire container */
+    height: 100vh;     
+}
+
+.contact-button{
+    width: 20%;    
+    margin-left: 40%;
+    margin-top: 5VH;    
+}
+
+/* testimonials */
+
+.testimonials{
+    background-image: url(media/typewriter.jpg);
+    background-position: center;
+    /* Center the image */
+    background-repeat: no-repeat;
+    /* Do not repeat the image */
+    background-size: cover;
+    /* Resize the background image to cover the entire container */
+    height: 100vh;    
+}
+
+/* The cards and positioning of the previous and next arrows will need to change for smaller screens */
+.testimonials .swiper-button-next{
+right: 35%;
+}
+
+.testimonials .swiper-button-prev {
+    left: 35%;
+}
+/* .card below affects display occuring after view button in viewrecords.php is clicked */
+.viewcard{
+left: 40vw;
+
+
+}
+
+.card-text, .card-title{
+    color: var(--clr-dark);
+}
+
+/* This below needed as testimonial cards are wider */
+.testimonialViewCard{
+    left: 32vw;
+}
+.testimonial-card{
+    width: 100vw;
+    height: 40vw;
+}
+
+
+
+.testimonial-swiper-wrapper{
+    width:50vw;
+}
+
+.testimonial-swiper-slide{
+    position: relative;
+    top: 25%;
+    left:80%;
+    width: 50%;
+}
+
+.testimonial-swiper-slide img {
+    height: 20%;
+}
+
+/* Forms stuff */
+
+.booking-form{
+    background-image: url(media/notebook-table-book-leather-pen-journal-1249-pxhere.com.jpg);
+    background-position: center;
+    /* Center the image */
+    background-repeat: no-repeat;
+    /* Do not repeat the image */
+    background-size: cover;
+    /* Resize the background image to cover the entire container */
+    height: 100vh;    
+    color: var(--johari-three);
+}
+
+.form-field{
+    width: 60%;
+    margin: auto;
+}
+
+.home-button{
+    width: 80%;
+    margin: auto;
+}
+
+/* Tables Stuff */
+
+.bookingTable{
+    background-color: var(--clr-accent);
+}
+
+.contactsTable{
+    background-color: rgb(76, 170, 62);
+}
+
+.testimonialsTable{
+    background-color: var(--clr-light);
+}
+
+#testimonialText{
+    color: var(--clr-dark);
+    border-radius: 2%;
+}
+
+#startDate, .text-success-johari{
+    color: #c77e1f;
+}
+    
+    #endDate{
+    color: #c77e1f;
+}
